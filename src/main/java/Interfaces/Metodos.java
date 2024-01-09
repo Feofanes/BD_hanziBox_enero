@@ -120,4 +120,7 @@ public interface Metodos {
     
     public String autocompletarCamposEjemplo(completar_entradas acceso);
     
+    public void mostrarTablaCompletar(String mostrar_texto_seleccionado);
+    
+    
 }

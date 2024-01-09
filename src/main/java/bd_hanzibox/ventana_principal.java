@@ -123,15 +123,15 @@ public class ventana_principal extends javax.swing.JFrame {
         if (combo.isEnabled()) {
 
             Implementacion_metodos aplicar_metodo = new Implementacion_metodos();
+            
+            // CAPTURA DE ENTRADAS  --------------------------------------------
+            entradaHanzi = jTextField_entrada.getText(); // capturamos la entrada en un string
 
             Unidad_min entrada = new Unidad_min();    //  instanciamos el obj final, la sintesis de la expresion 
 
             int n_hanzi = entradaHanzi.length();
 
             String[] deglosando_hanzi = new String[n_hanzi];    // almacenamos los hanzi individuales
-
-            // CAPTURA DE ENTRADAS  --------------------------------------------
-            entradaHanzi = jTextField_entrada.getText(); // capturamos la entrada en un string
 
             // RECUPERAMOS EL HANZI ESPECIFICO SEGUN POSICION ------------------
             deglosando_hanzi = entradaHanzi.split("");  // individualizamos los hanzi ingresados
@@ -517,6 +517,7 @@ public class ventana_principal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //  NADA
     private void jTextField_entradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_entradaActionPerformed
         
         
@@ -1002,10 +1003,54 @@ public class ventana_principal extends javax.swing.JFrame {
     //  HABILITAR LOS COMBO DE ACUERDO AL NUMERO DE HANZI INGRESADO (1-4)  ---- FUNCIONANDO   
     private void jTextField_entradaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField_entradaKeyReleased
         
+        jTextField_entrada.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                contarHanzi_introducidos();
+            }
+        });
+    }
+    
+    private void contarHanzi_introducidos() {
+        entradaHanzi = jTextField_entrada.getText();
+
+        // Llamada para actualizar el primer JComboBox
+        autocompletarCombo(jComboBox_radical, 0);
+
+        int n_hanzi_introducidos = entradaHanzi.length();
+
+        if (n_hanzi_introducidos == 1) {
+            jComboBox_radical_2.setEnabled(false);
+            jComboBox_radical_3.setEnabled(false);
+            jComboBox_radical_4.setEnabled(false);
+        } else if (n_hanzi_introducidos == 2) {
+            jComboBox_radical_2.setEnabled(true);
+            autocompletarCombo(jComboBox_radical_2, 1);
+            jComboBox_radical_3.setEnabled(false);
+            jComboBox_radical_4.setEnabled(false);
+        } else if (n_hanzi_introducidos == 3) {
+            jComboBox_radical_3.setEnabled(true);
+            autocompletarCombo(jComboBox_radical_3, 2);
+            jComboBox_radical_4.setEnabled(false);
+        } else if (n_hanzi_introducidos == 4) {
+            jComboBox_radical_2.setEnabled(true);
+            jComboBox_radical_3.setEnabled(true);
+            jComboBox_radical_4.setEnabled(true);
+            autocompletarCombo(jComboBox_radical_2, 1);
+            autocompletarCombo(jComboBox_radical_3, 2);
+            autocompletarCombo(jComboBox_radical_4, 3);
+        }
+    
+        
+        /*
         jTextField_entrada.getDocument().addDocumentListener(new DocumentListener(){
             
             @Override
             public void insertUpdate(DocumentEvent e) {
+                
+                 // Agregar una llamada adicional para actualizar el primer JComboBox
+                autocompletarCombo(jComboBox_radical, 0);
+
                 
                 contarHanzi_introducidos();
                 
@@ -1028,12 +1073,15 @@ public class ventana_principal extends javax.swing.JFrame {
             private void contarHanzi_introducidos(){
                 
                 entradaHanzi = jTextField_entrada.getText();
+                
                 int n_hanzi_introducidos = entradaHanzi.length();
-                //System.out.println("El número de hanzi escritos es de " + n_hanzi_introducidos);
+               
+                 // Agregar una llamada adicional para actualizar el primer JComboBox
+                //autocompletarCombo(jComboBox_radical, 0);
 
                 if (n_hanzi_introducidos == 1) {
                     
-                    autocompletarCombo(jComboBox_radical, 0);   // el n del combo -1, porque el array empieza en 0
+                   // autocompletarCombo(jComboBox_radical, 0);   // el n del combo -1, porque el array empieza en 0
                     
                     jComboBox_radical_2.setEnabled(false);
                     jComboBox_radical_3.setEnabled(false);
@@ -1143,7 +1191,8 @@ public class ventana_principal extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_busqueda_resultadosKeyPressed
-
+    
+    //  VENTANA DE COMPLETAR ENTRADAS
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         
         abrirCompletarEntradas();

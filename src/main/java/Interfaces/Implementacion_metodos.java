@@ -6,6 +6,7 @@ import Entradas.Unidad_final;
 import Entradas.Unidad_min;
 import java.sql.Connection;
 import bd_hanzibox.*;
+import static bd_hanzibox.completar_entradas.busqueda_resultados_completar;
 import static bd_hanzibox.procesador_texto.resultados_seleccion;
 import bd_hanzibox.ventana_principal;
 import static bd_hanzibox.ventana_principal.busqueda_resultados;
@@ -253,8 +254,9 @@ public class Implementacion_metodos implements Metodos {
             }
 
             // solo modificara en los campos donde se ingreso informacion
+            
             //  -------------------------- RADICAL -----------------------------
-            if (radical != null && !radical.isBlank() && !radical.equalsIgnoreCase("○")) {
+            if (radical != null || !radical.isBlank() || !radical.equalsIgnoreCase("○")) {
 
                 PreparedStatement modificar = conectar.prepareStatement(
                         "update hanzi_entrada set Radical = ? where Hanzi = ?");
@@ -2046,7 +2048,7 @@ public class Implementacion_metodos implements Metodos {
     
         return pinyinCapturado;
         
-    }
+    }   //  FUNCIONANDO
 
     @Override
     public String autocompletarCamposTraduccion(completar_entradas acceso) {
@@ -2142,7 +2144,63 @@ public class Implementacion_metodos implements Metodos {
         
         return ejemploCapturado;
        
+    }   //  FUNCIONANDO
+
+    @Override
+    public void mostrarTablaCompletar(String mostrar_texto_seleccionado) {
+        
+        try {
+
+            Connection conectar = conexion.conectar();
+
+            DefaultTableModel modelo = new DefaultTableModel(); //  modelamos la tabla
+
+            busqueda_resultados_completar.setModel(modelo);
+
+            busqueda_resultados_completar.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+
+            PreparedStatement seleccion = conectar.prepareStatement("SELECT * FROM hanzi_entrada WHERE Hanzi LIKE ?");
+
+            seleccion.setString(1, "%" + mostrar_texto_seleccionado + "%");
+
+            ResultSet consulta = seleccion.executeQuery();
+
+            ResultSetMetaData datos = consulta.getMetaData();
+            int cantidadColumnas = datos.getColumnCount();
+
+            modelo.addColumn("Radical");
+            modelo.addColumn("Hanzi");
+            modelo.addColumn("Fonetica");
+            modelo.addColumn("Traduccion");
+            modelo.addColumn("Ejemplo");
+
+            for (int i = 0; i < cantidadColumnas; i++) {
+
+                busqueda_resultados_completar.getColumnModel().getColumn(i);
+
+            }
+
+            while (consulta.next()) {
+
+                Object arreglo[] = new Object[cantidadColumnas];
+
+                for (int i = 0; i < cantidadColumnas; i++) {
+
+                    arreglo[i] = consulta.getObject(i + 1);
+                }
+                modelo.addRow(arreglo);
+            }
+
+            conexion.desconectar();
+
+        } catch (SQLException e) {
+
+            e.printStackTrace();
+
+        }
+        
     }
+    
     
     
     

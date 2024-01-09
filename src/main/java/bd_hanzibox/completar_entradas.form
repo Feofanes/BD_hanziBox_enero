@@ -90,7 +90,7 @@
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButton_guardar" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jButton_cargar" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -108,7 +108,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jTextField_entrada_completar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLab_entrada_completar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_cargar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -205,12 +205,12 @@
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField_entrada_completarKeyReleased"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButton_cargar">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Completar"/>
+            <Property name="text" type="java.lang.String" value="Cargar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton_cargarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel_radical_completar">

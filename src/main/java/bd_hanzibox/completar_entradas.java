@@ -61,7 +61,7 @@ public class completar_entradas extends javax.swing.JFrame {
         jButton_volver = new javax.swing.JButton();
         jLab_entrada_completar = new javax.swing.JLabel();
         jTextField_entrada_completar = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jButton_cargar = new javax.swing.JButton();
         jLabel_radical_completar = new javax.swing.JLabel();
         jComboBox_radical_completar = new javax.swing.JComboBox<>();
         jComboBox_radical_3_completar = new javax.swing.JComboBox<>();
@@ -127,10 +127,10 @@ public class completar_entradas extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Completar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_cargar.setText("Cargar");
+        jButton_cargar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButton_cargarActionPerformed(evt);
             }
         });
 
@@ -217,7 +217,7 @@ public class completar_entradas extends javax.swing.JFrame {
                                         .addGap(22, 22, 22)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButton_guardar)
-                                    .addComponent(jButton1))))
+                                    .addComponent(jButton_cargar))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap(21, Short.MAX_VALUE))
         );
@@ -228,7 +228,7 @@ public class completar_entradas extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField_entrada_completar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLab_entrada_completar)
-                    .addComponent(jButton1))
+                    .addComponent(jButton_cargar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -304,7 +304,7 @@ public class completar_entradas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField_entrada_completarKeyReleased
     
     //  IR PASANDO ENTRADAS PARA COMPLETAR
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButton_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cargarActionPerformed
        
         //  ------------------- TABLA PRINCIPAL --------------------------------
         
@@ -456,12 +456,17 @@ public class completar_entradas extends javax.swing.JFrame {
 
             //  ------------------------ REPORTE -----------------------------------
 
-            jLabel_notificacion_completar.setText(entradaHanzi_completar + " modificado");
+            //jLabel_notificacion_completar.setText(entradaHanzi_completar + " modificado");
             
             
             //  ------------------- TABLA SECUNDARIA --------------------------------
         
             aplicar.modificarSingularidad(entrada_final);
+            
+            //  ------------------ MOSTRAR TABLA -----------------------------------
+            
+            aplicar.mostrarTablaCompletar(entradaHanzi_completar);
+                    
             
 
         }else{
@@ -470,33 +475,25 @@ public class completar_entradas extends javax.swing.JFrame {
             
         }
         
+        jButton_cargar.setText("Completar");
+        
         //jTextField_pinyin_completar.setText("");
         //jTextField_traduccion_completar.setText("");
         //jTextField_ejemplo_completar.setText("");
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButton_cargarActionPerformed
 
     private void jComboBox_radical_completarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_radical_completarActionPerformed
 
     }//GEN-LAST:event_jComboBox_radical_completarActionPerformed
 
+    //  LIMPIAR Y HABILITAR COMBOS
     private void jButton_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_guardarActionPerformed
-        /*
-        Implementacion_metodos aplicar = new  Implementacion_metodos();
         
-        aplicar.modificar(entrada_final);
+        jButton_cargar.setText("Cargar");
         
-        System.out.println("entrada_final fue " + entrada_final.getEjemplo());
-
-            //  ------------------------ REPORTE -----------------------------------
-
-            jLabel_notificacion_completar.setText(entradaHanzi_completar + " modificado");
-            
-            
-            //  ------------------- TABLA SECUNDARIA --------------------------------
+        jLabel_notificacion_completar.setText(entradaHanzi_completar + " modificado");
         
-            aplicar.modificarSingularidad(entrada_final);
-        */
         jTextField_entrada_completar.setText("");
         jTextField_pinyin_completar.setText("");
         jTextField_traduccion_completar.setText("");
@@ -634,11 +631,11 @@ public class completar_entradas extends javax.swing.JFrame {
     }
 
     public JButton getjButton1() {
-        return jButton1;
+        return jButton_cargar;
     }
 
     public void setjButton1(JButton jButton1) {
-        this.jButton1 = jButton1;
+        this.jButton_cargar = jButton1;
     }
 
     public JButton getjButton_volver() {
@@ -777,7 +774,7 @@ public class completar_entradas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JTable busqueda_resultados_completar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton_cargar;
     private javax.swing.JButton jButton_guardar;
     private javax.swing.JButton jButton_volver;
     public javax.swing.JComboBox<String> jComboBox_radical_2_completar;
