@@ -103,8 +103,7 @@ public interface Metodos {
     public boolean mostrarIconLevel(String hskA,String hskB, String hskC);
     
     public boolean mostrarIconLevel_avanzado(String hsk);
-    
-    
+   
     
     //  COMPLETAR ENTRADAS  ----------------------------------------------------
     
@@ -121,6 +120,11 @@ public interface Metodos {
     public String autocompletarCamposEjemplo(completar_entradas acceso);
     
     public void mostrarTablaCompletar(String mostrar_texto_seleccionado);
+    
+    
+    //  VISUALIZADOR FULL SC  --------------------------------------------------
+    
+    public void mostrarTablaVisualizador();
     
     
 }

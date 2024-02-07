@@ -7,6 +7,7 @@ import Entradas.Unidad_min;
 import java.sql.Connection;
 import bd_hanzibox.*;
 import static bd_hanzibox.completar_entradas.busqueda_resultados_completar;
+import static bd_hanzibox.full_screen.busqueda_resultados_fullSC;
 import static bd_hanzibox.procesador_texto.resultados_seleccion;
 import bd_hanzibox.ventana_principal;
 import static bd_hanzibox.ventana_principal.busqueda_resultados;
@@ -1766,7 +1767,7 @@ public class Implementacion_metodos implements Metodos {
         try{
             
             BufferedReader br = new BufferedReader(new FileReader(ruta_completa));  //  se lee linea a linea
-
+            
             String linea;
 
             while ((linea = br.readLine()) != null) {   //  se almacena en un string si la linea NO esta vacia
@@ -1804,7 +1805,7 @@ public class Implementacion_metodos implements Metodos {
         
         return completado;
         
-    }   //  NO PROBADO
+    }   //  FUNCIONA
 
     @Override
     public boolean mostrarIconLevel_avanzado(String hsk) {
@@ -1824,9 +1825,15 @@ public class Implementacion_metodos implements Metodos {
         
         return completado;
         
-    }   //  NO PROBADO
+    }   //  FUNCIONA
+    
+   
 
     
+    //  ------------------------------------------------------------------------
+    
+    
+    //  ---------------------- COMPLETA ENTRADAS -------------------------------
     //  ------------------------------------------------------------------------
     
     //  RECORRE TODA LA BD EN BUSCA DE ENTRADAS QUE TENGAN ALGO INCOMPLETO
@@ -2202,7 +2209,64 @@ public class Implementacion_metodos implements Metodos {
     }
     
     
-    
+    //  ---------------------- VISUALIZADOR FULL SC ----------------------------
+    //  ------------------------------------------------------------------------
+
+    @Override
+    public void mostrarTablaVisualizador() {
+        
+        try{
+            
+            Connection conectar = conexion.conectar();
+
+            DefaultTableModel modelo = new DefaultTableModel(); //  modelamos la tabla
+            
+            busqueda_resultados_fullSC.setModel(modelo);
+            
+            busqueda_resultados_fullSC.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
+            
+            PreparedStatement seleccion = conectar.prepareStatement("SELECT * from hanzi_entrada");
+
+                    ResultSet consulta = seleccion.executeQuery();
+
+                    ResultSetMetaData datos = consulta.getMetaData();
+                    int cantidadColumnas = datos.getColumnCount();
+
+                    //modelo.addColumn("Codigo");
+                    modelo.addColumn("Radical");
+                    modelo.addColumn("Hanzi");
+                    modelo.addColumn("Fonetica");
+                    modelo.addColumn("Traduccion");
+                    modelo.addColumn("Ejemplo");
+
+                    for (int i = 0; i < cantidadColumnas; i++) {
+
+                        busqueda_resultados_fullSC.getColumnModel().getColumn(i);
+
+                    }
+
+                    while (consulta.next()) {
+
+                        Object arreglo[] = new Object[cantidadColumnas];
+
+                        for (int i = 0; i < cantidadColumnas; i++) {
+
+                            arreglo[i] = consulta.getObject(i + 1);
+                        }
+                        modelo.addRow(arreglo);
+                    }
+
+                    conexion.desconectar();
+
+        }catch(SQLException e){
+            
+            e.printStackTrace();
+            
+        }
+        
+        
+        
+    }
     
     
         

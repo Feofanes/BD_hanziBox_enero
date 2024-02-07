@@ -166,6 +166,14 @@ public class ventana_principal extends javax.swing.JFrame {
         
     }
     
+    public void abrirVisualizador(){
+        
+        full_screen ventana_visualizador = new full_screen();
+        
+        ventana_visualizador.setVisible(true);
+        
+    }
+    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -174,6 +182,7 @@ public class ventana_principal extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         jProgressBar1 = new javax.swing.JProgressBar();
         jButton4 = new javax.swing.JButton();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jLab_entrada = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLab_pinyin = new javax.swing.JLabel();
@@ -206,11 +215,13 @@ public class ventana_principal extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuItem_visualizador = new javax.swing.JMenuItem();
 
         jTextField3.setText("jTextField1");
 
         jButton4.setText("Modificar");
+
+        jMenuItem4.setText("jMenuItem4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -361,6 +372,7 @@ public class ventana_principal extends javax.swing.JFrame {
 
         jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         jMenuItem1.setText("Procesador de texto");
+        jMenuItem1.setToolTipText("Máquina de escribir y analizador de texto");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -370,6 +382,7 @@ public class ventana_principal extends javax.swing.JFrame {
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         jMenuItem2.setText("Completar entradas");
+        jMenuItem2.setToolTipText("Completar información faltante entrada por entrada");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -377,7 +390,9 @@ public class ventana_principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem2);
 
+        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
         jMenuItem3.setText("Actualizar");
+        jMenuItem3.setToolTipText("Analizar el porcentaje de match entre la base de datos y listas HSK");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -385,10 +400,17 @@ public class ventana_principal extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
-        jMenuBar_barraSup.add(jMenu1);
+        jMenuItem_visualizador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+        jMenuItem_visualizador.setText("Visualizador");
+        jMenuItem_visualizador.setToolTipText("Visualizador de las entradas guardadas en ventana completa");
+        jMenuItem_visualizador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem_visualizadorActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem_visualizador);
 
-        jMenu2.setText("Edit");
-        jMenuBar_barraSup.add(jMenu2);
+        jMenuBar_barraSup.add(jMenu1);
 
         setJMenuBar(jMenuBar_barraSup);
 
@@ -513,6 +535,10 @@ public class ventana_principal extends javax.swing.JFrame {
                 .addComponent(jLabel_tareaEjecutada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
+
+        jLabel_intermedio.setVisible(false);
+        jLabel_principiante.setVisible(false);
+        jLabel_avanzado.setVisible(false);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1216,6 +1242,14 @@ public class ventana_principal extends javax.swing.JFrame {
         String hsk6 = "hsk6";
         String hsk7 = "hsk7";
         
+        int porcentaje_hsk1 = aplicar.comparadorHSK(hsk1);
+        int porcentaje_hsk2 = aplicar.comparadorHSK(hsk2);
+        int porcentaje_hsk3 = aplicar.comparadorHSK(hsk3);
+        int porcentaje_hsk4 = aplicar.comparadorHSK(hsk4);
+        int porcentaje_hsk5 = aplicar.comparadorHSK(hsk5);
+        int porcentaje_hsk6 = aplicar.comparadorHSK(hsk6);
+        int porcentaje_hsk7 = aplicar.comparadorHSK(hsk7);
+        
         boolean mostrar_insignia_1 = aplicar.mostrarIconLevel(hsk1, hsk2, hsk3);
         boolean mostrar_insignia_2 = aplicar.mostrarIconLevel(hsk4, hsk5, hsk6);
         boolean mostrar_insignia_3 = aplicar.mostrarIconLevel_avanzado(hsk7);
@@ -1250,7 +1284,21 @@ public class ventana_principal extends javax.swing.JFrame {
             
         }
         
+        jLabel_tareaEjecutada.setText("HSK 1: " + porcentaje_hsk1 + "%" + "     " + "HSK 2: " 
+                + porcentaje_hsk2 + "%" + "     " + "HSK 3: " + porcentaje_hsk3 + "%" + "     " 
+                + "HSK 4: " + porcentaje_hsk4 + "%" + "     " + "HSK 5: " + porcentaje_hsk5 + "%" + "     " +
+                "HSK 6: " + porcentaje_hsk6 + "%" + "     " + "HSK 7: " + porcentaje_hsk7 + "%" + "     ");
+        
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    //  VISUALIZADOR FULL SCREEN
+    private void jMenuItem_visualizadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem_visualizadorActionPerformed
+        
+        abrirVisualizador();
+        
+        dispose();
+        
+    }//GEN-LAST:event_jMenuItem_visualizadorActionPerformed
     
     
     //  ------------------- GETTERS AND SETTERS --------------------------------
@@ -1595,11 +1643,12 @@ public class ventana_principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_tareaEjecutada_2;
     private javax.swing.JLabel jLabel_tareaEjecutada_3;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar_barraSup;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem_visualizador;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField3;
