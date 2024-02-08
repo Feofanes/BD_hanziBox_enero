@@ -29,6 +29,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
+import javax.swing.ImageIcon;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class ventana_principal extends javax.swing.JFrame {
     
@@ -211,11 +215,6 @@ public class ventana_principal extends javax.swing.JFrame {
         jLabel_principiante = new javax.swing.JLabel();
         jLabel_avanzado = new javax.swing.JLabel();
         jMenuBar_barraSup = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem_visualizador = new javax.swing.JMenuItem();
 
         jTextField3.setText("jTextField1");
 
@@ -246,7 +245,7 @@ public class ventana_principal extends javax.swing.JFrame {
 
         jLab_ejemplo.setText("Ejemplo");
 
-        jComboBox_radical.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"", "一", "口", "人" })
+        jComboBox_radical.setModel(new DefaultComboBoxModel(new String[] {"", "人", "口", "土", "女", "心", "手", "日", "月", "木", "氵", "火", "纟", "艹", "讠", "辶", "钅", "刂", "宀", "贝", "一", "力", "又", "犭", "禾", "⺮", "虫", "阜", "大", "广", "田", "目", "石", "衤", "足", "马", "页", "巾", "米", "车", "八", "尸", "寸", "山", "攵", "彳", "十", "工", "方", "门", "饣", "欠", "儿", "冫", "子", "疒", "隹", "斤", "亠", "王", "白", "立", "羊", "艮", "冖", "厂", "皿", "礻", "穴", "走", "雨", "囗", "小", "戈", "几", "舌", "干", "殳", "夕", "止", "牜", "皮", "耳", "辛", "阝", "酉", "青", "鸟", "弓", "厶", "户", "羽", "舟", "里", "匕", "夂", "见", "卩", "罒", "士", "勹"})
         );
         //jComboBox1.setRenderer(new CustomTableCellRenderer());
         jComboBox_radical.setSelectedItem("");
@@ -315,7 +314,7 @@ public class ventana_principal extends javax.swing.JFrame {
 
         jLabel_contador_entradas.setText("Palabras/expresiones:");
 
-        jComboBox_radical_2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"", "一", "口", "人" }));
+        jComboBox_radical_2.setModel(new DefaultComboBoxModel(new String[] {"", "人", "口", "土", "女", "心", "手", "日", "月", "木", "氵", "火", "纟", "艹", "讠", "辶", "钅", "刂", "宀", "贝", "一", "力", "又", "犭", "禾", "⺮", "虫", "阜", "大", "广", "田", "目", "石", "衤", "足", "马", "页", "巾", "米", "车", "八", "尸", "寸", "山", "攵", "彳", "十", "工", "方", "门", "饣", "欠", "儿", "冫", "子", "疒", "隹", "斤", "亠", "王", "白", "立", "羊", "艮", "冖", "厂", "皿", "礻", "穴", "走", "雨", "囗", "小", "戈", "几", "舌", "干", "殳", "夕", "止", "牜", "皮", "耳", "辛", "阝", "酉", "青", "鸟", "弓", "厶", "户", "羽", "舟", "里", "匕", "夂", "见", "卩", "罒", "士", "勹"}));
         jComboBox_radical_2.setSelectedItem("");
         jComboBox_radical_2.setEnabled(false);
         jComboBox_radical_2.addItemListener(new java.awt.event.ItemListener() {
@@ -342,11 +341,11 @@ public class ventana_principal extends javax.swing.JFrame {
             }
         });
 
-        jComboBox_radical_3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"", "一", "口", "人" }));
+        jComboBox_radical_3.setModel(new DefaultComboBoxModel(new String[] {"", "人", "口", "土", "女", "心", "手", "日", "月", "木", "氵", "火", "纟", "艹", "讠", "辶", "钅", "刂", "宀", "贝", "一", "力", "又", "犭", "禾", "⺮", "虫", "阜", "大", "广", "田", "目", "石", "衤", "足", "马", "页", "巾", "米", "车", "八", "尸", "寸", "山", "攵", "彳", "十", "工", "方", "门", "饣", "欠", "儿", "冫", "子", "疒", "隹", "斤", "亠", "王", "白", "立", "羊", "艮", "冖", "厂", "皿", "礻", "穴", "走", "雨", "囗", "小", "戈", "几", "舌", "干", "殳", "夕", "止", "牜", "皮", "耳", "辛", "阝", "酉", "青", "鸟", "弓", "厶", "户", "羽", "舟", "里", "匕", "夂", "见", "卩", "罒", "士", "勹"}));
         jComboBox_radical_3.setSelectedItem("");
         jComboBox_radical_3.setEnabled(false);
 
-        jComboBox_radical_4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"", "一", "口", "人" }));
+        jComboBox_radical_4.setModel(new DefaultComboBoxModel(new String[] {"", "人", "口", "土", "女", "心", "手", "日", "月", "木", "氵", "火", "纟", "艹", "讠", "辶", "钅", "刂", "宀", "贝", "一", "力", "又", "犭", "禾", "⺮", "虫", "阜", "大", "广", "田", "目", "石", "衤", "足", "马", "页", "巾", "米", "车", "八", "尸", "寸", "山", "攵", "彳", "十", "工", "方", "门", "饣", "欠", "儿", "冫", "子", "疒", "隹", "斤", "亠", "王", "白", "立", "羊", "艮", "冖", "厂", "皿", "礻", "穴", "走", "雨", "囗", "小", "戈", "几", "舌", "干", "殳", "夕", "止", "牜", "皮", "耳", "辛", "阝", "酉", "青", "鸟", "弓", "厶", "户", "羽", "舟", "里", "匕", "夂", "见", "卩", "罒", "士", "勹"}));
         jComboBox_radical_4.setSelectedItem("");
         jComboBox_radical_4.setEnabled(false);
 
@@ -363,178 +362,170 @@ public class ventana_principal extends javax.swing.JFrame {
         jLabel_avanzado.setIcon(new javax.swing.ImageIcon("/Users/nahuellaluce/NetBeansProjects/BD_hanziBox/src/main/java/bd_hanzibox/iconos/nivel_1.png")); // NOI18N
         jLabel_avanzado.setToolTipText("Nivel principiante");
 
-        jMenu1.setText("BD");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem1.setText("Procesador de texto");
-        jMenuItem1.setToolTipText("Máquina de escribir y analizador de texto");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem2.setText("Completar entradas");
-        jMenuItem2.setToolTipText("Completar información faltante entrada por entrada");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem3.setText("Actualizar");
-        jMenuItem3.setToolTipText("Analizar el porcentaje de match entre la base de datos y listas HSK");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem_visualizador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
-        jMenuItem_visualizador.setText("Visualizador");
-        jMenuItem_visualizador.setToolTipText("Visualizador de las entradas guardadas en ventana completa");
-        jMenuItem_visualizador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem_visualizadorActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem_visualizador);
-
-        jMenuBar_barraSup.add(jMenu1);
-
         setJMenuBar(jMenuBar_barraSup);
+        jMenuItem_visualizador = new javax.swing.JMenuItem();
+        jMenuItem_visualizador.setIcon(new ImageIcon(ventana_principal.class.getResource("/bd_hanzibox/iconos/lectura.png")));
+        jMenuBar_barraSup.add(jMenuItem_visualizador);
+        
+                jMenuItem_visualizador.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+                jMenuItem_visualizador.setToolTipText("Visualizador de las entradas guardadas en ventana completa");
+                jMenuItem_visualizador.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jMenuItem_visualizadorActionPerformed(evt);
+                    }
+                });
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem2.setIcon(new ImageIcon(ventana_principal.class.getResource("/bd_hanzibox/iconos/completar.png")));
+        jMenuBar_barraSup.add(jMenuItem2);
+        
+                jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+                jMenuItem2.setToolTipText("Completar información faltante entrada por entrada");
+                jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jMenuItem2ActionPerformed(evt);
+                    }
+                });
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem3.setIcon(new ImageIcon(ventana_principal.class.getResource("/bd_hanzibox/iconos/actualizar.png")));
+        jMenuBar_barraSup.add(jMenuItem3);
+        
+                jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+                jMenuItem3.setToolTipText("Analizar el porcentaje de match entre la base de datos y listas HSK");
+                jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jMenuItem3ActionPerformed(evt);
+                    }
+                });
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem1.setIcon(new ImageIcon(ventana_principal.class.getResource("/bd_hanzibox/iconos/maquinaEscribir.png")));
+        jMenuBar_barraSup.add(jMenuItem1);
+        
+                jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_DOWN_MASK));
+                jMenuItem1.setToolTipText("Máquina de escribir y analizador de texto");
+                jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+                    public void actionPerformed(java.awt.event.ActionEvent evt) {
+                        jMenuItem1ActionPerformed(evt);
+                    }
+                });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLab_traduccion)
-                            .addComponent(jLab_pinyin)
-                            .addComponent(jLab_entrada)
-                            .addComponent(jLab_ejemplo)
-                            .addComponent(jLabel2))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField_traduccion, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
-                                .addComponent(jTextField_ejemplo)
-                                .addComponent(jTextField_pinyin)
-                                .addComponent(jTextField_entrada))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jComboBox_radical, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox_radical_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox_radical_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(12, 12, 12)
-                                .addComponent(jComboBox_radical_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton_modificar)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_buscar))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton_agregar, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jButton_borrar))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel_contador_entradas_unicas)
-                                .addComponent(jLabel_contador_entradas))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel_avanzado)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel_intermedio)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel_principiante))))
-                    .addComponent(jLabel_tareaEjecutada_2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel_tareaEjecutada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 490, Short.MAX_VALUE))
-                    .addComponent(jLabel_tareaEjecutada_3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(29, 29, 29))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(30)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        						.addComponent(jLab_traduccion)
+        						.addComponent(jLab_pinyin)
+        						.addComponent(jLab_entrada)
+        						.addComponent(jLab_ejemplo)
+        						.addComponent(jLabel2))
+        					.addGap(149)
+        					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        						.addComponent(jTextField_traduccion, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+        						.addComponent(jTextField_ejemplo, Alignment.LEADING)
+        						.addComponent(jTextField_pinyin, Alignment.LEADING)
+        						.addComponent(jTextField_entrada, Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jComboBox_radical, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(jComboBox_radical_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        							.addPreferredGap(ComponentPlacement.UNRELATED)
+        							.addComponent(jComboBox_radical_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        							.addGap(12)
+        							.addComponent(jComboBox_radical_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jButton_modificar)
+        							.addGap(18)
+        							.addComponent(jButton_buscar))
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jButton_agregar, GroupLayout.PREFERRED_SIZE, 84, GroupLayout.PREFERRED_SIZE)
+        							.addGap(18)
+        							.addComponent(jButton_borrar))
+        						.addComponent(jLabel_contador_entradas_unicas)
+        						.addComponent(jLabel_contador_entradas)
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jLabel_avanzado)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(jLabel_intermedio)
+        							.addPreferredGap(ComponentPlacement.RELATED)
+        							.addComponent(jLabel_principiante))))
+        				.addComponent(jLabel_tareaEjecutada_2, GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE)
+        				.addGroup(layout.createSequentialGroup()
+        					.addComponent(jLabel_tareaEjecutada)
+        					.addGap(0, 654, Short.MAX_VALUE))
+        				.addComponent(jLabel_tareaEjecutada_3, GroupLayout.DEFAULT_SIZE, 763, Short.MAX_VALUE))
+        			.addGap(29))
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLab_entrada))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField_entrada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton_agregar)
-                            .addComponent(jButton_borrar))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jComboBox_radical, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jComboBox_radical_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_radical_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox_radical_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLab_pinyin)
-                            .addComponent(jTextField_pinyin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLab_traduccion)
-                            .addComponent(jTextField_traduccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLab_ejemplo)
-                            .addComponent(jTextField_ejemplo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton_modificar)
-                            .addComponent(jButton_buscar))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel_contador_entradas)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jLabel_contador_entradas_unicas)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel_intermedio))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel_avanzado))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel_principiante)))))
-                .addGap(25, 25, 25)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_tareaEjecutada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_tareaEjecutada_2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel_tareaEjecutada_3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(layout.createSequentialGroup()
+        			.addGap(33)
+        			.addGroup(layout.createParallelGroup(Alignment.TRAILING)
+        				.addComponent(jLab_entrada)
+        				.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        					.addGroup(layout.createSequentialGroup()
+        						.addGap(3)
+        						.addComponent(jTextField_entrada))
+        					.addComponent(jButton_agregar)
+        					.addComponent(jButton_borrar)))
+        			.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jComboBox_radical, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(jLabel2)
+        						.addComponent(jComboBox_radical_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(jComboBox_radical_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+        						.addComponent(jComboBox_radical_4, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLab_pinyin)
+        						.addComponent(jTextField_pinyin, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLab_traduccion)
+        						.addComponent(jTextField_traduccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        					.addGap(18)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jLab_ejemplo)
+        						.addComponent(jTextField_ejemplo, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+        				.addGroup(layout.createSequentialGroup()
+        					.addGap(10)
+        					.addGroup(layout.createParallelGroup(Alignment.BASELINE)
+        						.addComponent(jButton_modificar)
+        						.addComponent(jButton_buscar))
+        					.addPreferredGap(ComponentPlacement.UNRELATED)
+        					.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        						.addGroup(layout.createSequentialGroup()
+        							.addComponent(jLabel_contador_entradas)
+        							.addGroup(layout.createParallelGroup(Alignment.LEADING)
+        								.addGroup(layout.createSequentialGroup()
+        									.addGap(9)
+        									.addComponent(jLabel_contador_entradas_unicas)
+        									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        									.addComponent(jLabel_intermedio))
+        								.addGroup(layout.createSequentialGroup()
+        									.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        									.addComponent(jLabel_avanzado))))
+        						.addGroup(layout.createSequentialGroup()
+        							.addGap(0, 88, Short.MAX_VALUE)
+        							.addComponent(jLabel_principiante)))))
+        			.addGap(25)
+        			.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jLabel_tareaEjecutada)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jLabel_tareaEjecutada_2)
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addComponent(jLabel_tareaEjecutada_3, GroupLayout.PREFERRED_SIZE, 19, GroupLayout.PREFERRED_SIZE)
+        			.addGap(42))
         );
+        getContentPane().setLayout(layout);
 
         jLabel_intermedio.setVisible(false);
         jLabel_principiante.setVisible(false);
@@ -1163,11 +1154,6 @@ public class ventana_principal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jComboBox_radicalActionPerformed
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-
-        
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
     //  SIN USO
     private void jComboBox_radical_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_radical_2ActionPerformed
         
@@ -1642,7 +1628,6 @@ public class ventana_principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel_tareaEjecutada;
     private javax.swing.JLabel jLabel_tareaEjecutada_2;
     private javax.swing.JLabel jLabel_tareaEjecutada_3;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar_barraSup;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
